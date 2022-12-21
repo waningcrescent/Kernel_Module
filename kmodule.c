@@ -5,6 +5,7 @@
 #include <linux/init.h>
 #include <linux/sched.h>
 #include <linux/syscalls.h>
+#include <linux/config.h>
 
 
 MODULE_LICENSE("GPL");

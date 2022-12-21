@@ -4,8 +4,7 @@
 #include <linux/unistd.h>
 #include <linux/init.h>
 #include <linux/sched.h>
-#include <linux/syscalls.h>
-#include <linux/config.h>
+
 
 
 MODULE_LICENSE("GPL");
@@ -18,15 +17,16 @@ module_param(pid,int,0);
 
 static int __init kmodule_init(void)
 {
-    
- 
  pid_t p1_pid ;
  uid_t p1_uid ;
- struct task_struct *p1;
+ 
  pid_t p1_pgid;
+ struct task_struct *p1;
  
  p1 = pid_task(find_vpid(pid), PIDTYPE_PID);
-
+  if(!p1){
+        return -ESRCH;
+    }
 
  
  p1_pid = p1->pid;

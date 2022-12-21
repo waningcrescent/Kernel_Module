@@ -25,9 +25,7 @@ static int __init kmodule_init(void)
  pid_t p1_pgid;
  
  p1 = pid_task(find_vpid(pid), PIDTYPE_PID);
-  if(!p1){
-        return -ESRCH;
-    }
+
 
  
  p1_pid = p1->pid;
